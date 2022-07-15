@@ -1,0 +1,1510 @@
+$page-width: 80%;
+$main-background: black;
+$main-yellow: rgb(110, 88, 148);
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background-color: white;
+  color: rgb(255, 255, 255);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0);
+  width: 100%;
+  display: flex;
+  position: sticky;
+  z-index: 99;
+  top: 0;
+  justify-content: space-around;
+  .utilityBar {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    @media (min-width: 100px) {
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+    @media (min-width: 390px) {
+      flex-direction: row;
+      gap: 0;
+      justify-content: unset;
+    }
+    .link {
+      text-decoration: none;
+      .logo {
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: white;
+        .logoInscription {
+          cursor: pointer;
+          color: white;
+          &:hover {
+            color: rgb(110, 88, 148);
+          }
+        }
+      }
+    }
+    .menu {
+      display: flex;
+      gap: 35px;
+      width: 100%;
+      font-size: 1.2rem;
+      @media (min-width: 100px) {
+        margin: 0;
+        justify-content: space-around;
+      }
+      @media (min-width: 390px) {
+        margin: 0 40px;
+        justify-content: right;
+        align-items: center;
+      }
+      .link {
+        color: inherit;
+        text-decoration: inherit;
+        &:hover {
+          cursor: pointer;
+          color: rgb(110, 88, 148);
+        }
+      }
+    }
+  }
+}
+
+.transparent {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+}
+
+.frontPanel {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+  .mainText {
+    user-select: none;
+    font-size: 6rem;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    @media (min-width: 100px) {
+      font-size: 2rem;
+    }
+    @media (min-width: 360px) {
+      font-size: 3rem;
+    }
+    @media (min-width: 540px) {
+      font-size: 4.5rem;
+    }
+    @media (min-width: 720px) {
+      font-size: 6rem;
+    }
+  }
+  .secondaryText {
+    margin-top: 40px;
+    user-select: none;
+    font-size: 2rem;
+    @media (min-width: 100px) {
+      font-size: 1rem;
+    }
+    @media (min-width: 360px) {
+      font-size: 1.3rem;
+    }
+    @media (min-width: 540px) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: 720px) {
+      font-size: 2rem;
+    }
+  }
+  button {
+    margin-top: 10px;
+    background-color: transparent;
+    padding: 8px 20px;
+    border: 2px solid white;
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease-out;
+    &:hover {
+      color: black;
+      background-color: white;
+      transition: all 0.3s ease-out;
+      cursor: pointer;
+    }
+  }
+}
+
+.personPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 15px;
+  align-items: center;
+  width: calc($page-width + 30px);
+  .pagination {
+    margin-bottom: 20px;
+    margin-top: 90px;
+  }
+  .personBar {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    color: black;
+    padding: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 30px);
+    @media (min-width: 100px) {
+      flex-direction: column;
+      text-align: left;
+      gap: 25px;
+    }
+    @media (min-width: 1000px) {
+      flex-direction: initial;
+      gap: 0;
+    }
+    .inscription {
+      margin-left: 10px;
+      font-weight: bolder;
+      color: $main-background;
+    }
+    .settingsBar {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      @media (min-width: 100px) {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      @media (min-width: 750px) {
+        flex-wrap: nowrap;
+      }
+      .sortSection {
+        .sortButton {
+          display: flex;
+          align-items: center;
+          padding: 5px 11px;
+          &:hover {
+            cursor: pointer;
+            background-color: rgb(246, 246, 246);
+            transition: background-color 0.2s;
+          }
+        }
+      }
+      .filterSection {
+        .filterButton {
+          display: flex;
+          align-items: center;
+          padding: 5px 11px;
+          &:hover {
+            cursor: pointer;
+            background-color: rgb(246, 246, 246);
+            transition: background-color 0.2s;
+          }
+        }
+      }
+      .searchSection {
+        display: flex;
+        height: 100%;
+        background-color: white;
+        transition: box-shadow 0.2s;
+        border: 1px solid lightgray;
+        &:hover {
+          box-shadow: 0px 0px 15px $main-yellow;
+        }
+        input {
+          font-size: 0.9rem;
+          margin-left: 10px;
+          outline: none;
+          border: none;
+          height: 28.8px;
+          width: 100%;
+        }
+        .icon {
+          display: flex;
+          align-items: center;
+          color: black;
+        }
+      }
+      .addSection {
+        display: flex;
+        align-items: center;
+        padding: 5px 11px;
+        &:hover {
+          cursor: pointer;
+          background-color: rgb(246, 246, 246);
+          transition: background-color 0.2s;
+        }
+        .icon {
+          color: $main-yellow;
+        }
+      }
+    }
+  }
+  .personList {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .person {
+      box-shadow: 0 0 0.2rem rgb(238, 238, 238);
+      @media (min-width: 385px) {
+        width: calc(50% - 30px);
+      }
+      @media (min-width: 565px) {
+        width: calc(33.3333333% - 30px);
+      }
+      @media (min-width: 780px) {
+        width: calc(25% - 30px);
+      }
+      @media (min-width: 980px) {
+        width: calc(20% - 30px);
+      }
+      @media (min-width: 1200px) {
+        width: calc(16.6666667% - 30px);
+      }
+      @media (min-width: 1800px) {
+        width: calc(12.5% - 30px);
+      }
+      padding: 15px;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(244, 244, 244);
+        transition: background-color 0.2s;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        @media (min-width: 385px) {
+          height: 75%;
+        }
+        @media (min-width: 550px) {
+          height: 75%;
+        }
+      }
+      .personInfo {
+        display: flex;
+        flex-direction: column;
+        align-content: space-around;
+        height: 22%;
+        line-height: 20px;
+        .fullName {
+          padding-top: 5px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+          color: $main-background;
+        }
+        .lowerInfo {
+          .date {
+            font-size: 0.9rem;
+            color: rgb(155, 155, 155);
+          }
+          .nationality {
+            font-size: 0.9rem;
+            color: rgb(155, 155, 155);
+          }
+        }
+      }
+    }
+  }
+}
+
+.SetDirectorDialogue {
+  .DialogContent {
+    overflow: hidden;
+    .directorAddPanel {
+      .setDirectorButton {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        padding: 10px 20px;
+        border: 1px solid gray;
+        box-shadow: 0 0 0.2rem rgb(174, 174, 174);
+        color: $main-background;
+        font-size: 1rem;
+        background-color: white;
+        font-weight: 550;
+        &:hover {
+          cursor: pointer;
+          color: white;
+          background-color: $main-background;
+          transition: background-color 0.4s;
+        }
+      }
+      .deleteDirectorButton {
+        font-size: 1.1rem;
+        margin-top: 10px;
+      }
+      .directorAddList {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow-y: auto;
+        max-height: 60vh;
+        padding-right: 10px;
+        .directorGrey {
+          background-color: rgb(239, 239, 239);
+          transition: background-color 0.4s;
+        }
+        .director {
+          &:hover {
+            cursor: pointer;
+          }
+          padding-right: 10px;
+          height: 100px;
+          display: flex;
+          .fullName {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            height: 10px;
+            margin-top: 10px;
+            margin-left: 15px;
+            font-size: 1.1rem;
+            max-width: 200px;
+          }
+          img {
+            height: 100px;
+            width: 75px;
+            border-radius: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.AddActorDialogue {
+  .DialogContent {
+    overflow: hidden;
+    .actorAddPanel {
+      .addActorButton {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        padding: 10px 20px;
+        border: 1px solid gray;
+        box-shadow: 0 0 0.2rem rgb(174, 174, 174);
+        color: $main-background;
+        font-size: 1.1rem;
+        background-color: white;
+        font-weight: 550;
+        &:hover {
+          cursor: pointer;
+          color: white;
+          background-color: $main-background;
+          transition: background-color 0.4s;
+        }
+      }
+      .actorAddList {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow-y: auto;
+        max-height: 70vh;
+        padding-right: 10px;
+        .actorGrey {
+          background-color: rgb(239, 239, 239);
+          transition: background-color 0.4s;
+        }
+        .actor {
+          height: 100px;
+          padding-right: 10px;
+          display: flex;
+          &:hover {
+            cursor: pointer;
+          }
+          .fullName {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            height: 10px;
+            margin-top: 10px;
+            margin-left: 15px;
+            font-size: 1.1rem;
+            max-width: 200px;
+          }
+          img {
+            height: 100px;
+            width: 75px;
+            border-radius: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.EditMovieDialogue {
+  color: $main-background;
+  .DialogTitle {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(192, 192, 192);
+  }
+  .DialogContent {
+    overflow-x: hidden;
+    padding-bottom: 0px;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .movieForm {
+      .form {
+        padding: 11px 25px;
+        display: flex;
+        flex-direction: column;
+        .errorMessage {
+          font-size: 0.85rem;
+          text-align: center;
+          color: red;
+          padding: 0;
+          margin: 0;
+        }
+        .field {
+          border: 2px solid lightgray;
+          margin-top: 35px;
+          font-size: 0.9rem;
+          padding: 8px 5px;
+          width: 200px;
+          height: 20px;
+        }
+        button {
+          font-size: 1.2rem;
+          outline: none;
+          border: 1px solid gray;
+          box-shadow: 0 0 0.2rem rgb(174, 174, 174);
+          margin-top: 40px;
+          margin-bottom: 20px;
+          padding: 10px 20px;
+          color: $main-background;
+          background-color: white;
+          &:hover {
+            cursor: pointer;
+            color: white;
+          background-color: $main-background;
+          transition: background-color 0.4s;
+          }
+        }
+      }
+    }
+  }
+}
+
+.DeleteConfirmationDialogue {
+  .DialogActions {
+    display: flex;
+    justify-content: space-between;
+    div {
+      padding: 10px 20px;
+      color: $main-background;
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(185, 46, 255, 0.1);
+        transition: background-color 0.5s;
+      }
+    }
+  }
+}
+
+.moviePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 15px;
+  align-items: center;
+  width: calc($page-width + 30px);
+  .pagination {
+    margin-bottom: 20px;
+    margin-top: 90px;
+  }
+  .movieBar {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    color: black;
+    padding: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 30px);
+    @media (min-width: 100px) {
+      flex-direction: column;
+      text-align: left;
+      gap: 25px;
+    }
+    @media (min-width: 1000px) {
+      flex-direction: initial;
+      gap: 0;
+    }
+    .inscription {
+      margin-left: 10px;
+      font-weight: bolder;
+      color: $main-background;
+    }
+    .settingsBar {
+      @media (min-width: 100px) {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      @media (min-width: 750px) {
+        flex-wrap: nowrap;
+      }
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      .sortSection {
+        .sortButton {
+          display: flex;
+          align-items: center;
+          padding: 5px 11px;
+          &:hover {
+            cursor: pointer;
+            background-color: rgb(246, 246, 246);
+            transition: background-color 0.2s;
+          }
+        }
+      }
+      .filterSection {
+        .filterButton {
+          display: flex;
+          align-items: center;
+          padding: 5px 11px;
+          &:hover {
+            cursor: pointer;
+            background-color: rgb(246, 246, 246);
+            transition: background-color 0.2s;
+          }
+        }
+      }
+      .searchSection {
+        display: flex;
+        height: 100%;
+        background-color: white;
+        transition: box-shadow 0.2s;
+        border: 1px solid lightgray;
+        &:hover {
+          box-shadow: 0px 0px 15px $main-yellow;
+        }
+        input {
+          font-size: 0.9rem;
+          margin-left: 10px;
+          outline: none;
+          border: none;
+          height: 28.8px;
+          width: 100%;
+        }
+        .icon {
+          display: flex;
+          align-items: center;
+          color: black;
+        }
+      }
+      .addSection {
+        display: flex;
+        align-items: center;
+        padding: 5px 11px;
+        &:hover {
+          cursor: pointer;
+          background-color: rgb(246, 246, 246);
+          transition: background-color 0.2s;
+        }
+        .icon {
+          color: $main-yellow;
+        }
+      }
+    }
+  }
+  .movieList {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .movie {
+      box-shadow: 0 0 0.2rem rgb(238, 238, 238);
+      $movieWidth: calc(16.6666667% - 30px);
+      @media (min-width: 435px) {
+        width: calc(50% - 30px);
+      }
+      @media (min-width: 620px) {
+        width: calc(33.3333333% - 30px);
+      }
+      @media (min-width: 800px) {
+        width: calc(25% - 30px);
+      }
+      @media (min-width: 1080px) {
+        width: calc(20% - 30px);
+      }
+      @media (min-width: 1280px) {
+        width: calc(16.6666667% - 30px);
+      }
+      @media (min-width: 1800px) {
+        width: calc(12.5% - 30px);
+      }
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 3%;
+      justify-content: space-between;
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(244, 244, 244);
+        transition: background-color 0.2s;
+      }
+      img {
+        width: 100%;
+        height: 75%;
+      }
+      .movieInfo {
+        display: flex;
+        flex-direction: column;
+        align-content: space-around;
+        height: 22%;
+        line-height: 20px;
+        margin-bottom: 8px;
+        .upperInfo {
+          .title {
+            color: $main-background;
+            padding-top: 5px;
+          }
+        }
+        .lowerInfo {
+          .date {
+            font-size: 0.9rem;
+            color: rgb(155, 155, 155);
+          }
+          .genre {
+            font-size: 0.9rem;
+            color: rgb(155, 155, 155);
+          }
+        }
+      }
+    }
+  }
+}
+
+.FilterMoviesDialogue {
+  $modal-background: #272531;
+  .DialogTitle {
+    color: white;
+    background-color: $modal-background;
+    border-bottom: 1px solid rgb(54, 54, 54);
+  }
+  .DialogActions {
+    display: flex;
+    justify-content: space-between;
+    background-color: $modal-background;
+    border-top: 1px solid rgb(54, 54, 54);
+
+    .filterButton {
+      padding: 10px 20px;
+      color: $main-yellow;
+      background-color: $modal-background;
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(185, 46, 255, 0.1);
+        transition: background-color 0.5s;
+      }
+    }
+  }
+  .DialogContent {
+    padding-bottom: 0px;
+    background-color: $modal-background;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .genreList {
+      width: 90%;
+      justify-content: center;
+      background-color: $modal-background;
+      padding: 20px 0px;
+      margin: 0px 20px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgb(54, 54, 54);
+      .genreWhite {
+        &:hover {
+          cursor: pointer;
+        }
+        transition: background-color 0.3s;
+        margin: 7px 5px;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        background-color: white;
+        color: rgb(87, 87, 87);
+        border-radius: 28px;
+      }
+      .genreRed {
+        &:hover {
+          cursor: pointer;
+        }
+        transition: background-color 0.3s;
+        margin: 7px 5px;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        background-color: rgb(212, 37, 37);
+        color: white;
+        border-radius: 28px;
+      }
+    }
+    .dateFilter {
+      width: 100%;
+      color: white;
+      margin-bottom: 25px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        input {
+          height: 25px;
+          width: 180px;
+        }
+      }
+    }
+  }
+}
+
+.AddMovieDialogue {
+  $modal-background: #272531;
+  .DialogTitle {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    background-color: $modal-background;
+    border-bottom: 1px solid rgb(54, 54, 54);
+    .addMovieButton {
+      padding: 10px 20px;
+      color: $main-yellow;
+      background-color: $modal-background;
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(185, 46, 255, 0.1);
+        transition: background-color 0.5s;
+      }
+    }
+  }
+  .DialogContent {
+    overflow-x: hidden;
+    padding-bottom: 0px;
+    overflow-y: hidden;
+    background-color: $modal-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .movieForm {
+      .form {
+        padding: 11px 25px;
+        display: flex;
+        flex-direction: column;
+        .errorMessage {
+          font-size: 0.85rem;
+          text-align: center;
+          color: red;
+          padding: 0;
+          margin: 0;
+        }
+        .field {
+          margin-top: 35px;
+          font-size: 0.9rem;
+          outline: none;
+          border: none;
+          padding: 8px 5px;
+          width: 200px;
+          height: 20px;
+        }
+        button {
+          font-size: 1.2rem;
+          outline: none;
+          border: none;
+          margin-top: 40px;
+          margin-bottom: 20px;
+          padding: 10px 20px;
+          color: $main-yellow;
+          background-color: $modal-background;
+          &:hover {
+            cursor: pointer;
+            background-color: rgba(185, 46, 255, 0.1);
+            transition: background-color 0.5s;
+          }
+        }
+      }
+    }
+  }
+}
+
+.FilterPeopleDialogue {
+  $modal-background: #272531;
+  .DialogTitle {
+    color: white;
+    background-color: $modal-background;
+    border-bottom: 1px solid rgb(54, 54, 54);
+  }
+  .DialogActions {
+    border-top: 1px solid rgb(54, 54, 54);
+    display: flex;
+    justify-content: space-between;
+    background-color: $modal-background;
+    .filterButton {
+      padding: 10px 20px;
+      color: $main-yellow;
+      background-color: $modal-background;
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(185, 46, 255, 0.1);
+        transition: background-color 0.5s;
+      }
+    }
+  }
+  .DialogContent {
+    padding-bottom: 0px;
+    background-color: $modal-background;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .nationalityList {
+      border-bottom: 1px solid rgb(54, 54, 54);
+      width: 90%;
+      justify-content: center;
+      background-color: $modal-background;
+      padding: 20px 0px;
+      margin: 0px 20px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      .nationalityWhite {
+        &:hover {
+          cursor: pointer;
+        }
+        transition: background-color 0.3s;
+        margin: 7px 5px;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        background-color: white;
+        color: rgb(87, 87, 87);
+        border-radius: 28px;
+      }
+      .nationalityRed {
+        &:hover {
+          cursor: pointer;
+        }
+        transition: background-color 0.3s;
+        margin: 7px 5px;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        background-color: rgb(212, 37, 37);
+        color: white;
+        border-radius: 28px;
+      }
+    }
+    .dateFilter {
+      width: 100%;
+      color: white;
+      margin-bottom: 25px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        input {
+          height: 25px;
+          width: 180px;
+        }
+      }
+    }
+  }
+}
+
+.AddPersonDialogue {
+  $modal-background: #272531;
+  .DialogTitle {
+    gap: 8px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    background-color: $modal-background;
+    border-bottom: 1px solid rgb(54, 54, 54);
+    .addPersonButton {
+      padding: 10px 20px;
+      color: $main-yellow;
+      background-color: $modal-background;
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(185, 46, 255, 0.1);
+        transition: background-color 0.5s;
+      }
+    }
+  }
+  .DialogContent {
+    overflow-x: hidden;
+    padding-bottom: 0px;
+    overflow-y: hidden;
+    background-color: $modal-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .personForm {
+      .form {
+        padding: 11px 25px;
+        display: flex;
+        flex-direction: column;
+        .errorMessage {
+          font-size: 0.85rem;
+          text-align: center;
+          color: red;
+          padding: 0;
+          margin: 0;
+        }
+        .field {
+          margin-top: 35px;
+          font-size: 0.9rem;
+          outline: none;
+          border: none;
+          padding: 8px 5px;
+          width: 200px;
+          height: 20px;
+        }
+        button {
+          font-size: 1.2rem;
+          outline: none;
+          border: none;
+          margin-top: 40px;
+          margin-bottom: 20px;
+          padding: 10px 20px;
+          color: $main-yellow;
+          background-color: $modal-background;
+          &:hover {
+            cursor: pointer;
+            background-color: rgba(185, 46, 255, 0.1);
+            transition: background-color 0.5s;
+          }
+        }
+      }
+    }
+  }
+}
+
+.singleMoviePage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .infoPage {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: white;
+    color: $main-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 620px) {
+      min-height: calc(100vh - 76px - 60px);
+    }
+    @media (min-width: 621px) {
+      height: calc(100vh - 76px - 60px);
+    }
+    .singleMovie {
+      display: flex;
+      gap: 20px;
+      width: 80%;
+      height: 70%;
+      @media (max-width: 620px) {
+        flex-direction: column;
+        width: 50%;
+        min-height: calc(100vh - 76px - 60px);
+      }
+      @media (max-width: 500px) {
+        width: 70%;
+      }
+      .movieDetails {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: 620px;
+        position: relative;
+        @media (max-width: 620px) {
+          gap: 30px;
+        }
+        .movieTitle {
+          .title {
+            font-size: 2rem;
+            font-weight: bold;
+          }
+        }
+        .movieDescription {
+          font-size: 1.2rem;
+          overflow: auto;
+          max-height: 82px;
+          padding-right: 20px;
+        }
+        .releaseDate {
+          div {
+            font-size: 1.2rem;
+          }
+        }
+        .movieDirector {
+          div {
+            &:hover {
+              cursor: pointer;
+            }
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+  .buttonPage {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 1em 3px $main-background;
+    background-color: $main-background;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    .buttonBar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      align-items: center;
+      width: 80%;
+      padding: 50px 0;
+      @media (max-width: 1000px) {
+        justify-content: center;
+      }
+      @media (min-width: 1000px) {
+        justify-content: space-between;
+      }
+      div {
+        display: flex;
+        align-items: center;
+        padding: 5px 11px;
+        font-size: 1.15rem;
+        &:hover {
+          cursor: pointer;
+          background-color: rgb(34, 34, 34);
+          transition: background-color 0.2s;
+        }
+      }
+    }
+  }
+  .actorPage {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 100px 0px;
+    background-color: white;
+    color: $main-background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    ::-webkit-scrollbar {
+      width: 130px;
+      height: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f8f8f8;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: rgb(214, 214, 214);
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgb(199, 199, 199);
+    }
+    .title {
+      display: flex;
+      justify-content: left;
+      align-items: left;
+      margin-bottom: 15px;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    .actorList {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: left;
+      gap: 15px;
+      max-width: 80%;
+      overflow: auto;
+      padding-bottom: 20px;
+      .actor {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 190.06px;
+        border-radius: 8px;
+        border: solid 1px lightgray;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+        .deleteButton {
+          position: absolute;
+          top: 7px;
+          right: 7px;
+          padding: 3px;
+          color: lightgray;
+          &:hover {
+            cursor: pointer;
+            color: white;
+            padding: 3px;
+            border-radius: 5px;
+            padding-bottom: 0px;
+            background-color: rgba(170, 170, 170, 0.2);
+          }
+        }
+        img {
+          &:hover {
+            cursor: pointer;
+          }
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          height: 237.44px;
+          width: 190.06px;
+        }
+        .actorFullName {
+          div {
+            &:hover {
+              cursor: pointer;
+            }
+          }
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+          font-weight: bold;
+          margin: 13px 0px;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+.singlePersonPage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .infoPage {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: white;
+    color: $main-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 76px - 60px);
+    .singlePerson {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      height: 70%;
+      width: 300px;
+      @media (max-width: 330px) {
+        width: 250px;
+      }
+      @media (max-width: 280px) {
+        width: 220px;
+      }
+      img {
+        box-shadow: 0 0 1em rgb(184, 184, 184);
+        width: 300px;
+        @media (max-width: 330px) {
+          width: 250px;
+        }
+        @media (max-width: 280px) {
+          width: 220px;
+        }
+      }
+      .personDetails {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        .fullName {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          div {
+            font-size: 1.2rem;
+            font-weight: bold;
+          }
+        }
+        .otherDetails {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .birthDate {
+            display: flex;
+            flex-direction: column;
+            color: gray;
+            font-size: 0.9rem;
+            div {
+              font-size: 1.1rem;
+              color: $main-background;
+            }
+          }
+          .nationality {
+            display: flex;
+            flex-direction: column;
+            color: gray;
+            font-size: 0.9rem;
+            div {
+              font-size: 1.1rem;
+              color: $main-background;
+            }
+          }
+        }
+      }
+    }
+  }
+  .buttonPage {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 1em 3px $main-background;
+    background-color: $main-background;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    .buttonBar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: space-around;
+      align-items: center;
+      width: 80%;
+      padding: 50px 0;
+      div {
+        display: flex;
+        align-items: center;
+        padding: 5px 11px;
+        font-size: 1.15rem;
+        &:hover {
+          cursor: pointer;
+          background-color: rgb(34, 34, 34);
+          transition: background-color 0.2s;
+        }
+      }
+    }
+  }
+  .movieSliderPage {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    gap: 50px;
+    background-color: white;
+    height: none;
+    color: $main-background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    .movieSlider:first-child {
+      margin-top: 100px;
+    }
+    .movieSlider:last-child {
+      margin-bottom: 100px;
+    }
+    .movieSlider {
+      max-width: 80%;
+      background-color: white;
+      color: $main-background;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      ::-webkit-scrollbar {
+        width: 130px;
+        height: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f8f8f8;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: rgb(214, 214, 214);
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgb(199, 199, 199);
+      }
+      .title {
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        margin-bottom: 15px;
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
+      .pageMovieList {
+        display: flex;
+        justify-content: left;
+        gap: 15px;
+        max-width: 100%;
+        overflow: auto;
+        padding-bottom: 20px;
+        .pageMovie {
+          &:hover {
+            cursor: pointer;
+          }
+          position: relative;
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          width: 190.06px;
+          min-height: 320px;
+          border-radius: 8px;
+          border: solid 1px lightgray;
+          box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+          img {
+            &:hover {
+              cursor: pointer;
+            }
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            width: 190.06px;
+            height: 270px;
+          }
+          .movieDetails {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            gap: 5px;
+            margin: 8px 0;
+            margin-left: 7px;
+            justify-content: center;
+            div:first-child {
+              font-weight: bold;
+            }
+            div:nth-child(2) {
+              color: gray;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.EditPersonDialogue {
+  color: $main-background;
+  .DialogTitle {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(192, 192, 192);
+  }
+  .DialogContent {
+    overflow-x: hidden;
+    padding-bottom: 0px;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .personForm {
+      .form {
+        padding: 11px 25px;
+        display: flex;
+        flex-direction: column;
+        .errorMessage {
+          font-size: 0.85rem;
+          text-align: center;
+          color: red;
+          padding: 0;
+          margin: 0;
+        }
+        .field {
+          border: 2px solid lightgray;
+          margin-top: 35px;
+          font-size: 0.9rem;
+          padding: 8px 5px;
+          width: 200px;
+          height: 20px;
+        }
+        button {
+          font-size: 1.2rem;
+          outline: none;
+          border: 1px solid gray;
+          box-shadow: 0 0 0.2rem rgb(174, 174, 174);
+          margin-top: 40px;
+          margin-bottom: 20px;
+          padding: 10px 20px;
+          color: $main-background;
+          background-color: white;
+          &:hover {
+            cursor: pointer;
+            color: white;
+          background-color: $main-background;
+          transition: background-color 0.4s;
+          }
+        }
+      }
+    }
+  }
+}
+
+.MuiMenu-list {
+  .menuLine {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .icon {
+    margin-top: 5px;
+  }
+}
