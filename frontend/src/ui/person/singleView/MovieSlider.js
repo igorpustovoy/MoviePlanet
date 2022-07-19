@@ -17,9 +17,12 @@ const MovieSlider = ({ personId }) => {
     navigate(`/movies/${movieId}`);
   };
 
+  console.log("Movies acted in:", moviesActedIn);
+  console.log("Movies directed:", moviesDirected);
+
   return (
     <div className="movieSliderPage">
-      {moviesDirected.length > 0 && (
+      {Array.isArray(moviesDirected) && moviesDirected.length > 0 && !moviesDirected.includes(undefined) && (
         <div className="movieSlider directed">
           <div className="title">Directed Movies:</div>
           <div className="pageMovieList">
@@ -46,7 +49,7 @@ const MovieSlider = ({ personId }) => {
           </div>
         </div>
       )}
-      {moviesActedIn.length > 0 && (
+      {Array.isArray(moviesActedIn) && moviesActedIn.length > 0 && !moviesActedIn.includes(undefined) && (
         <div className="movieSlider actedIn">
           <div className="title">Acted In:</div>
           <div className="pageMovieList">

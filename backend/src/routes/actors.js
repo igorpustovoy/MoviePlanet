@@ -4,6 +4,7 @@ const router = express.Router({mergeParams: true});
 
 router.get('/', async (req, res) => {
     const actors = await client.query("SELECT * FROM actor");
+    res.set('Access-Control-Allow-Origin', '*');
     return res.send(actors.rows);
 });
 
