@@ -37,8 +37,6 @@ const MovieList = (props) => {
     navigate(`/movies/${movieId}`);
   };
 
-  ////////////////////////////////
-
   const [page, setPage] = useState(1);
 
   return (
@@ -82,7 +80,6 @@ const MovieList = (props) => {
                   <div className="date">{movie.release_date.slice(0, 10)}</div>
                   <div className="genre">{movie.genre}</div>
                 </div>
-                {/* <button onClick={() => handleDelete(movies.byId[id])}>Delete</button> */}
               </div>
             </div>
           ))}
