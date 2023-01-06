@@ -1,5 +1,5 @@
 # MoviePlanet
-One of my early projects. Please see newer ones to see my current code quality.
+One of my early projects. Please see newer ones.
 
 Movie database website that uses React/Redux/Node/Postgres/Sass.
 
